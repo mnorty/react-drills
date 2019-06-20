@@ -7,8 +7,8 @@ class App extends Component {
     super()
 
     this.state= {
-      message: ""
     }
+    foods:['SpaggettiEis', 'KartoffelPuffer', 'KurryWurst', 'StinkerKase']
   }
 
   handleChange(value) {
@@ -16,10 +16,12 @@ class App extends Component {
   }
 
   render() {
+    let foodsToDisplay = this.state.foods.map((elemnt,index) => {
+      return <h2>{index}>{element}</h2>
+    })
     return (
       <div className="App">
-        <input onChange={e => this.handleChange(e.target.value)} type="text"/>
-          <p>{this.state.message}</p>
+        <div>{foodsToDisplay}</div>
       </div>
     );
   }

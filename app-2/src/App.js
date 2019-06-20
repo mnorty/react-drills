@@ -2,13 +2,26 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import Login from "./Login";
-
 class App extends Component {
+  constructor(){
+    super()
+
+    this.state= {
+      foods:['SpaggettiEis', 'KartoffelPuffer', 'KurryWurst', 'StinkerKase']
+    }
+  }
+
+  handleChange(value) {
+    this.setState({message:value})
+  }
+
   render() {
+    let foodsToDisplay = this.state.foods.map((element,index) => {
+      return <h2 key={index}>{element}</h2>
+    })
     return (
       <div className="App">
-        <Login />
+        <div>{foodsToDisplay}</div>
       </div>
     );
   }
